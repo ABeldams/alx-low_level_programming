@@ -1,22 +1,17 @@
 #include "main.h"
 /**
- * print_line - a function that draws a straight line in the terminal
- * @n: input number of times to print '_'
- * Return: a straight line
+ * print_line - draw a straight line
+ * @n: number of times underscore is printed
+ * Description: Can only use _putchar to print
  */
-void print_line(int n)
-{
-int co;
-if(n<=0)
-{
-_putchar('\n');
+void print_line(int n) 
+{  
+int c;  
+c = 0;  
+while (c < n)    
+{      
+_putchar('_');      
+c++;      
 }
-else
-{
-for(co=1;co<=n;co++)
-{
-_putchar('_');
-}
-_putchar('\n');
-}
+  _putchar('\n'); 
 }
