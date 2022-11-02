@@ -19,7 +19,7 @@ else if (j % i == 0 || j <= 1)
 return (0);
 }
 else
-{  
+{
 return (prime_found(i + 1, j));
 }
 }
@@ -34,5 +34,5 @@ return (0);
 int is_prime_number(int n)
 {
 int a = 2;
-return (prime_found(a, n)); 
+return (prime_found(a, n));
 }
