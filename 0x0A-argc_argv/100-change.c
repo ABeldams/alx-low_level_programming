@@ -35,7 +35,7 @@ while (cents > 0)
 {
 while (cents >= q)
 {
-cents -= q;  
+cents -= q;
 coins++;
 }
 while (cents >= d)
