@@ -11,18 +11,11 @@
  */
 int main(int argc, char *argv[])
 {
-  int i, j, length, sum;
-  
-  char *ptr;
-  
-
-  
-  if (argc < 2)
-    
-    printf("0\n");
-  
-  else
-    
+int i, j, length, sum;
+char *ptr;
+if (argc < 2)    
+printf("0\n");  
+else  
     {
       
       sum = 0;
@@ -63,7 +56,6 @@ int main(int argc, char *argv[])
       
       printf("%d\n", sum);
       
-    }
-  
+    }  
   return (0); 
 }
