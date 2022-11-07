@@ -28,11 +28,11 @@ if (strnew == NULL)
 {
 return (NULL);
 }
-for (i = 0; s1[i] != '\0'; i++) 
+for (i = 0; s1[i] != '\0'; i++)
 strnew[i] = s1[i];
 for (; s2[count] != '\0'; i++)
 {
-strnew[i] = s2[count]; 
+strnew[i] = s2[count];
 count++;
 }
 return (strnew);
