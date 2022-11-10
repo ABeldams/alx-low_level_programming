@@ -18,7 +18,7 @@ if (s1 == NULL)
 s1 = empt;
 if (s2 == NULL)
 s2 = empt;
-while (s1[len] != '\0') 
+while (s1[len] != '\0')
 len++;
 size = (len + n) * sizeof(*nstr);
 nstr = malloc(size + 1);
