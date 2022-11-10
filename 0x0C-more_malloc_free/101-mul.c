@@ -4,11 +4,8 @@
 
 
 /**
-
  * print_str - Print a given string
-
  * @str: String to print
-
  */
 
 void print_str(char *str)
@@ -40,9 +37,7 @@ void print_str(char *str)
 
 
 /**
-
  * print_err - Print the word "Error"
-
  */
 
 void print_err(void)
@@ -68,15 +63,10 @@ void print_err(void)
 
 
 /**
-
  * rev_string - Reverse the given string
-
  * @s: The string to reverse
-
  * @size: Size of string to revers;
-
  * Return: Nothing
-
  */
 
 void rev_string(char *s, int size)
@@ -132,15 +122,10 @@ void rev_string(char *s, int size)
 
 
 /**
-
  * str_len - Find the length of a given string
-
  * @str: String to find the length of
-
  *
-
  * Return: Length of the string
-
  */
 
 unsigned int str_len(char *str)
@@ -168,17 +153,11 @@ unsigned int str_len(char *str)
 
 
 /**
-
  * init - Initialize an array with 0
-
  * @arr: The array to initialize
-
  * @size: Size of the array
-
  *
-
- * Return: Pointer to array
-
+ * Return: Pointer to arra
  */
 
 char *init(char *arr, int size)
@@ -208,15 +187,10 @@ char *init(char *arr, int size)
 
 
 /**
-
  * _isstrdigit - Check if input is only numbers
-
  * @str: Given input to check
-
  *
-
  * Return: 1 if a number, 0 if otherwise
-
  */
 
 int _isstrdigit(char *str)
@@ -248,21 +222,13 @@ int _isstrdigit(char *str)
 
 
 /**
-
  * mul - Multiply two strings together
-
  * @num1: The first number, as a string
-
  * @num2: The second number, as a string
-
  * @len1: The length of the first string
-
  * @len2: The length of the second string
-
  *
-
  * Return: Pointer to char array
-
  */
 
 char *mul(char *num1, char *num2, int len1, int len2)
@@ -348,17 +314,11 @@ char *mul(char *num1, char *num2, int len1, int len2)
 
 
 /**
-
  * remove_zeroes - Remove zeroes from num
-
  * @str: String to remove zeroes from
-
  * @len: Length of string
-
  *
-
  * Return: Pointer to new string
-
  */
 
 char *remove_zeroes(char *str, int len)
@@ -424,17 +384,11 @@ char *remove_zeroes(char *str, int len)
 
 
 /**
-
  * check_zero - Check to see if the number is zero or if zeroes need to be gone
-
  * @str: Str to check for zeroes
-
  * @len: len of string
-
  *
-
  * Return: Pointer to new num string
-
  */
 
 char *check_zero(char *str, int len)
@@ -500,21 +454,14 @@ char *check_zero(char *str, int len)
 
 
 /**
-
  * main - Run all necessary functions to multply two strings as numbers
-
  * @argc: Number of args
-
  * @argv: Value of args
-
  *
-
  * Return: 0 on success
-
  */
 
 int main(int argc, char *argv[])
-  
 {
   
   int len1, len2, anslen;
