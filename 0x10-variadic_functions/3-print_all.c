@@ -1,53 +1,16 @@
-#include <stdio.h>
-#include <stdarg.h>
 #include "variadic_functions.h"
-/**
- * printf_char - printfs a char from var args
- *
- * @list: va_list to print from
- *
- * Return: void
- */
-void printf_char(va_list list)
-{
-printf("%c", (char) va_arg(list, int));
-}
-/**
- * printf_int - printfs an int from var args
- *
- * @list: va_list to print from
- *
- * Return: void
- */
-void printf_int(va_list list) 
-{
-printf("%d", va_arg(list, int));
-}
-/**
- * printf_float - printfs a float from var args
- *
- * @list: va_list to print from
- *
- * Return: void
- */
 
-void printf_float(va_list list)
-  
-{
-  
-  printf("%f", (float) va_arg(list, double));
-  
-}
+#include <stdarg.h>
+
+#include <stdio.h>
 
 
 
 /**
 
- * printf_string - printfs a string from var args
+ * print_all - prints anything.
 
- *
-
- * @list: va_list to print from
+ * @format: is a list of types of arguments passed to the function.
 
  *
 
@@ -55,100 +18,164 @@ void printf_float(va_list list)
 
  */
 
-void printf_string(va_list list)
-  
-{
-  
-  char *str = va_arg(list, char*);
-  
 
-  
-  while (str != NULL)
-    
-    {
-      
-      printf("%s", str);
-      
-      return;
-      
-    }
-  
-  printf("(nil)");
-  
-}
-
-
-
-
-
-/**
-
- * print_all - prints various types given a format string for the arguments
-
- *
-
- * @format: string containing type information for args
-
- *
-
- * Return: void
-
- */
 
 void print_all(const char * const format, ...)
   
 {
   
-  const char *ptr;
+  va_list valist;
   
-  va_list list;
+  int j = 0, i = 0;
   
-  funckey key[4] = { {printf_char, 'c'}, {printf_int, 'i'},
+  char *sep = "";
+  
+  my_form forms[] = {
 		     
-		     {printf_float, 'f'}, {printf_string, 's'} };
-  
-  int keyind = 0, notfirst = 0;
+		     {"c", print_achar},
+		     
+		     {"i", print_anint},
+		     
+		     {"f", print_afloat},
+		     
+		     {"s", print_achar_arr},
+		     
+  };
   
 
   
-  ptr = format;
+  va_start(valist, format);
   
-  va_start(list, format);
+
   
-  while (format != NULL && *ptr)
+  while (format != NULL && format[i] != '\0')
     
     {
       
-      if (key[keyind].spec == *ptr)
+      j = 0;
+      
+      while (j < 4)
 	
 	{
 	  
-	  if (notfirst)
+	  if (format[i] == *forms[j].c)
 	    
-	    printf(", ");
+	    {
+	      
+	      printf("%s", sep);
+	      
+	      forms[j].f(&valist);
+	      
+	      sep = ", ";
+	      
+	      break;
+	      
+	    }
 	  
-	  notfirst = 1;
-	  
-	  key[keyind].f(list);
-	  
-	  ptr++;
-	  
-	  keyind = -1;
+	  j++;
 	  
 	}
       
-      keyind++;
-      
-      ptr += keyind / 4;
-      
-      keyind %= 4;
+      i++;
       
     }
   
+  va_end(valist);
+  
   printf("\n");
+  
+}
+
+
+
+/**
+
+ * print_achar - prints the next char in a va_list
+
+ * @valist: the working va_list.
+
+ * Return: void.
+
+ */
+
+void print_achar(va_list *valist)
+  
+{
+  
+  printf("%c", va_arg(*valist, int));
+  
+}
+
+
+
+/**
+
+ * print_anint - prints the next integer vaue in a va_list
+
+ * @valist: the working va_list.
+
+ * Return: void.
+
+ */
+
+void print_anint(va_list *valist)
+  
+{
+  
+  printf("%d", va_arg(*valist, int));
+  
+}
+
+
+
+/**
+
+ * print_afloat - prints the next float value in a va_list
+
+ * @valist: the working va_list.
+
+ * Return: void.
+
+ */
+
+void print_afloat(va_list *valist)
+  
+{
+  
+  printf("%f", va_arg(*valist, double));
+  
+}
+
+
+
+/**
+
+ * print_achar_arr - prints the next char array in a va_list
+
+ * @valist: the working va_list.
+
+ * Return: void.
+
+ */
+
+void print_achar_arr(va_list *valist)
+  
+{
+  
+  char *s = va_arg(*valist, char *);
   
 
   
-  va_end(list);
+  if (s == NULL)
+    
+    {
+      
+      printf("(nil)");
+      
+      return;
+      
+    }
+  
+  printf("%s", s);
   
 }
